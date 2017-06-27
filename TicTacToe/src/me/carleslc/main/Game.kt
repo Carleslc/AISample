@@ -4,8 +4,9 @@ import me.carleslc.extensions.*
 import me.carleslc.game.*
 import me.carleslc.network.*
 import me.carleslc.transforms.ValidMoveTransform
-import java.util.Random
 import me.carleslc.memory.RuntimeMemory
+import me.carleslc.utils.Execution
+import java.util.Random
 
 fun main(args: Array<String>) {
 	Network.name = "Tic-Tac-Toe"

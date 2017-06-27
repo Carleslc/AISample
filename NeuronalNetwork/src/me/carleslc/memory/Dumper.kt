@@ -17,7 +17,7 @@ internal open class Dumper<I, O>(val cache: Cache<I, O>, val path: String = "") 
 		fun String.fileize() = toLowerCase().replace(Regex("\\s"), "_")
 	}
 	
-	private val dir = File("${ Network.name.fileize() }")
+	private val dir = File("mem/${ Network.name.fileize() }")
 	private val file = File(dir, if (path.isEmpty()) "${ counter++ }" else path)
 	
 	init {

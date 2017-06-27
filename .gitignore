@@ -29,3 +29,6 @@
 
 # Mac directory listing
 **/.DS_Store
+
+# NeuronalNetwork Memory generated files
+NeuronalNetwork/mem
