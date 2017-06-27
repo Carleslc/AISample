@@ -28,4 +28,4 @@
 *.classpath
 
 # Mac directory listing
-.DS_Store
+**/.DS_Store
