@@ -1,6 +1,6 @@
 package me.carleslc.memory
 
-import me.carleslc.extensions.getTimeFrom
+import me.carleslc.kotlin.extensions.time.getTimeFrom
 import me.carleslc.network.Network
 import java.io.File
 import java.io.ObjectInputStream

@@ -2,7 +2,7 @@ package me.carleslc.memory
 
 import me.carleslc.transforms.Transformation
 
-open class RuntimeMemory<I, O> (transformation: Transformation<I, O>): Memory<I, O>(transformation) {
+open class RuntimeMemory<I, O> (transformation: Transformation<I, O>) : Memory<I, O>(transformation) {
 	
 	override var changes = false
 	

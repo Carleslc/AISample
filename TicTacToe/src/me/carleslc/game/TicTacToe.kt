@@ -1,6 +1,6 @@
 package me.carleslc.game
 
-import me.carleslc.extensions.*
+import me.carleslc.kotlin.extensions.arrays.*
 
 enum class Status { PLAYING, WINNER, LOOSER, DRAW }
 
@@ -11,11 +11,11 @@ data class TicTacToe(var player: Player = Player.X,
 	init {
 		if (m == 0 || n == 0 || k == 0) throw IllegalArgumentException("m, n and k cannot be zero")
 		if (k > m && k > n) throw IllegalArgumentException("this game always will finish in a draw")
-		if (board.array.size != m || board.array.any { it.size != n }) throw IllegalArgumentException("invalid board")
+		if (board.matrix.size != m || board.matrix.any { it.size != n }) throw IllegalArgumentException("invalid board")
 	}
 	
 	fun status(): Status {
-		val rows = board.array.indices
+		val rows = board.matrix.indices
 		val columns = board[0].indices
 		for (i in rows) {
 			for (j in columns) {
@@ -25,7 +25,7 @@ data class TicTacToe(var player: Player = Player.X,
 				}
 			}
 		}
-		return if (board.array.anyNull()) Status.PLAYING else Status.DRAW
+		return if (board.matrix.anyNull()) Status.PLAYING else Status.DRAW
 	}
 	
 	fun status(m: Move): Status {

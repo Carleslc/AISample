@@ -5,7 +5,7 @@ import me.carleslc.network.Evaluation
 import me.carleslc.neuron.Output
 import me.carleslc.neuron.ScoredOutput
 
-abstract class Memory<I, O> (val transformation: Transformation<I, O>): Transformation<I, O>, Cache<I, O> {
+open abstract class Memory<I, O> (val transformation: Transformation<I, O>): Transformation<I, O>, Cache<I, O> {
 	
 	companion object {
 		internal val dumpers: MutableList<Dumper<*,*>> = mutableListOf()

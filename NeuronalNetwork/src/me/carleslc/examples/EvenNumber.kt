@@ -1,6 +1,6 @@
 package me.carleslc.examples
 
-import me.carleslc.extensions.*
+import me.carleslc.kotlin.extensions.number.*
 import me.carleslc.network.Network
 import me.carleslc.utils.Execution
 import me.carleslc.network.Evaluation

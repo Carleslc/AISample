@@ -1,6 +1,6 @@
 package me.carleslc.network
 
-import me.carleslc.extensions.getTimeFrom
+import me.carleslc.kotlin.extensions.time.getTimeFrom
 import me.carleslc.neuron.Input
 import me.carleslc.transforms.Transformation
 import me.carleslc.neuron.Processor

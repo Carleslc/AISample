@@ -1,21 +1,21 @@
 package me.carleslc.game
 
-import me.carleslc.extensions.*
+import me.carleslc.kotlin.extensions.arrays.*
 import me.carleslc.game.Player
 import me.carleslc.game.Move
 import java.util.Arrays
 
 data class Move(val row: Int, val column: Int)
 
-class Board private constructor(private val board: Array<Array<Player?>>) {
+class Board private constructor(private val board: Matrix<Player?>) {
 	
 	companion object Factory {
-		fun empty(m: Int = 3, n: Int = 3) = Board(array2dOfNulls(m, n))
+		fun empty(m: Int = 3, n: Int = 3) = Board(matrixOfNulls(m, n))
 		
 		fun of(vararg rows: Array<Player?>) = Board(Array<Array<Player?>>(rows.size) { rows[it] })
 	}
 	
-	val array = board // Alias to replace Board.board with Board.array, which is more readable and meaningful
+	val matrix = board // Alias to replace Board.board with Board.matrix, which is more readable and meaningful
 	
 	operator fun get(index: Int): Array<Player?> = board[index]
 	

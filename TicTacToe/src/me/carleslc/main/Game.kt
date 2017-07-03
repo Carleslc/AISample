@@ -1,6 +1,7 @@
 package me.carleslc.main
 
-import me.carleslc.extensions.*
+import me.carleslc.kotlin.extensions.arrays.*
+import me.carleslc.kotlin.extensions.utils.*
 import me.carleslc.game.*
 import me.carleslc.network.*
 import me.carleslc.transforms.ValidMoveTransform
