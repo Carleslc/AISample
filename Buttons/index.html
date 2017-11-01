@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Buttons Neural Network</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  <div class="container">
+    <h1>Buttons Neural Network</h1>
+    <div id="training" class="hidden">
+      <div id="real-info" class="hidden alert alert-primary">
+        <div id="real-info-text"></div>
+      </div>
+      <div id="info" class="hidden alert alert-success">
+        <a class="close pointer" onclick="reset()">&times;</a>  
+        <div id="info-text"></div>
+      </div>
+      <button id="train" class="btn btn-success" onclick="train()">Train</button>
+      <button id="train-full" class="btn btn-warning" onclick="trainFull()">Full Train</button>
+    </div>
+    <form id="inputsForm" onsubmit="start()">
+      <div class="form-group">
+        <label for="learningRate">Learning Rate</label>
+        <input class="form-control" id="learningRate" aria-describedby="learning rate" value="0.5">
+      </div>
+      <div class="form-group">
+        <label for="desiredResult">Desired Result</label>
+        <input class="form-control" id="desiredResult" aria-describedby="desired result" value="1.0">
+      </div>
+      <div class="form-group">
+        <label for="inputs">Inputs</label>
+        <div class="form-control" id="inputs" aria-describedby="inputs">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input position-static" type="checkbox" id="input1" value="input1" aria-label="input 1">
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input position-static" type="checkbox" id="input2" value="input2" aria-label="input 2">
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input position-static" type="checkbox" id="input3" value="input3" aria-label="input 3">
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input position-static" type="checkbox" id="input4" value="input4" aria-label="input 4">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="margin-top">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="buttons.js"></script>
+</body>
+
+</html>
