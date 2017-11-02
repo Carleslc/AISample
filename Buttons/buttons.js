@@ -1,11 +1,13 @@
 var infoAlert = $("#info");
 var infoText = $("#info-text");
+var learningRateField = $('#learningRate');
+var desiredResultField = $("#desiredResult");
 var inputsSection = $("#inputs");
 
 var inputs = [0];
 var weights = [0];
 var learningRate = 0;
-var desiredResult = 0;
+var realOutput = 0;
 var trial = 1;
 var errorLast = [-1, 0];
 const ERROR_THRESHOLD = 0.005;
@@ -45,7 +47,7 @@ function train() {
   clearAlert();
   println("<i>Training #" + trial + "</i>");
   output = evaluate();
-  var error = info(desiredResult, output);
+  var error = info(realOutput, output);
   if (isError(error) && isLoop(error)) {
     learningRate = learningRate / 2;
   }
@@ -106,10 +108,10 @@ function arrayToString(array) {
   return "[" + array.map(fix).join(', ') + "]";
 }
 
-function info(desiredResult, output) {
+function info(realOutput, output) {
   println("<b>Neural Net output:</b> " + fix(output));
   println("<b>Weights:</b> " + arrayToString(weights));
-  errorValue = error(desiredResult, output);
+  errorValue = error(realOutput, output);
   println("<b>Error:</b> " + fix(Math.abs(errorValue)));
   return errorValue;
 }
@@ -138,17 +140,44 @@ function removeButton() {
   }
 }
 
+function initialLearningRate() {
+  return parseFloat(learningRateField.val());
+}
+
+function desiredResult() {
+  return parseFloat(desiredResultField.val());
+}
+
+function validate(field, validation) {
+  if (!validation) {
+    field.addClass("is-invalid");
+    return false;
+  } else {
+    field.removeClass("is-invalid");
+  }
+  return true;
+}
+
+function valid() {
+  var valid = true;
+  var learningRate = initialLearningRate();
+  if (!validate(learningRateField, !isNaN(learningRate) && learningRate > 0)) valid = false;
+  if (!validate(desiredResultField, !isNaN(desiredResult()))) valid = false;
+  return valid;
+}
+
 function start() {
+  if (!valid()) return;
   $('#training').show();
   $('#inputsForm').addClass("margin-top");
-  learningRate = parseFloat($("#learningRate").val());
-  desiredResult = parseFloat($("#desiredResult").val());
+  learningRate = initialLearningRate();
+  realOutput = desiredResult();
   for (i = 0; i < inputs.length; i++) {
     inputs[i] = + $("#input" + (i + 1)).is(":checked");
   }
   setOutputStream("real-info");
   clearAlert();
-  println("<b>Real output:</b> " + fix(desiredResult));
+  println("<b>Real output:</b> " + fix(realOutput));
   println("<b>Inputs:</b> " + arrayToString(inputs));
   setOutputStream("info");
 }
