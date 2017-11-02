@@ -1,4 +1,4 @@
-.container {
+.flex-margin-top {
   margin-top: 3vh;
 }
 
@@ -10,6 +10,21 @@
   display: none;
 }
 
+button,
 .pointer {
   cursor: pointer;
+}
+
+.parent {
+  display: table;
+  table-layout: fixed;
+}
+
+.child {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
 }

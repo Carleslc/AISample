@@ -1,8 +1,9 @@
 var infoAlert = $("#info");
 var infoText = $("#info-text");
+var inputsSection = $("#inputs");
 
-var inputs = [0, 0, 0, 0];
-var weights = [0, 0, 0, 0];
+var inputs = [0];
+var weights = [0];
 var learningRate = 0;
 var desiredResult = 0;
 var trial = 1;
@@ -111,6 +112,30 @@ function info(desiredResult, output) {
   errorValue = error(desiredResult, output);
   println("<b>Error:</b> " + fix(Math.abs(errorValue)));
   return errorValue;
+}
+
+function buttons() {
+  return $(".form-check").length;
+}
+
+function addButton() {
+  i = buttons() + 1;
+  inputsSection.append(
+      '<div class="form-check form-check-inline">\
+        <label class="form-check-label">\
+          <input class="form-check-input position-static" type="checkbox" id="input' + i + '" value="input' + i + '" aria-label="input ' + i + '">\
+        </label>\
+      </div>');
+  inputs.push(0);
+  weights.push(0);
+}
+
+function removeButton() {
+  if (buttons() > 1) {
+    inputsSection.contents().last().remove();
+    inputs.pop();
+    weights.pop();
+  }
 }
 
 function start() {

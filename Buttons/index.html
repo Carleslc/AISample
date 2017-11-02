@@ -14,7 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-  <div class="container">
+  <div class="container flex-margin-top">
     <h1>Buttons Neural Network</h1>
     <div id="training" class="hidden">
       <div id="real-info" class="hidden alert alert-primary">
@@ -25,9 +25,9 @@
         <div id="info-text"></div>
       </div>
       <button id="train" class="btn btn-success" onclick="train()">Train</button>
-      <button id="train-full" class="btn btn-warning" onclick="trainFull()">Full Train</button>
+      <button id="train-full" class="btn btn-warning" onclick="trainFull()">Full Training</button>
     </div>
-    <form id="inputsForm" onsubmit="start()">
+    <form id="inputsForm">
       <div class="form-group">
         <label for="learningRate">Learning Rate</label>
         <input class="form-control" id="learningRate" aria-describedby="learning rate" value="0.5">
@@ -38,31 +38,26 @@
       </div>
       <div class="form-group">
         <label for="inputs">Inputs</label>
-        <div class="form-control" id="inputs" aria-describedby="inputs">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input position-static" type="checkbox" id="input1" value="input1" aria-label="input 1">
-            </label>
+        <div class="row parent">
+          <div class="col-10 child">
+            <div class="form-control" id="inputs" aria-describedby="inputs">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input position-static" type="checkbox" checked id="input1" value="input1" aria-label="input 1">
+                </label>
+              </div>
+            </div>
           </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input position-static" type="checkbox" id="input2" value="input2" aria-label="input 2">
-            </label>
+          <div class="col-1 child">
+            <button type="button" class="btn btn-success" onclick="addButton()">+</button>
           </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input position-static" type="checkbox" id="input3" value="input3" aria-label="input 3">
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input position-static" type="checkbox" id="input4" value="input4" aria-label="input 4">
-            </label>
+          <div class="col-1 child">
+            <button type="button" class="btn btn-danger" onclick="removeButton()">-</button>
           </div>
         </div>
       </div>
       <div class="margin-top">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="start()">Update</button>
       </div>
     </form>
   </div>
