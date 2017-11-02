@@ -46,7 +46,7 @@ function train() {
   println("<i>Training #" + trial + "</i>");
   output = evaluate();
   var error = info(desiredResult, output);
-  if (isLoop(error)) {
+  if (isError(error) && isLoop(error)) {
     learningRate = learningRate / 2;
   }
   propagateError(error);
@@ -68,7 +68,7 @@ function trainFull() {
 }
 
 function reset() {
-  weights = [0, 0, 0, 0];
+  weights = weights.fill(0);
   trial = 1;
   errorLast = [-1, 0];
   start();
